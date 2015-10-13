@@ -1,0 +1,10 @@
+{
+  "name": "NadeoMod",
+  "version": "0.0.1",
+  "title": "NadeoMod",
+  "author": "Nadeo",
+  "contact": "",
+  "homepage": "http://factorio.com",
+  "description": "",
+  "dependencies": ["base >= 0.11.1"]
+}
