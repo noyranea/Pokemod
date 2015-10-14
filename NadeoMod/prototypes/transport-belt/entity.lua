@@ -1,6 +1,6 @@
 super_belt_horizontal =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -8,7 +8,7 @@ super_belt_horizontal =
   }
 super_belt_vertical =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -17,7 +17,7 @@ super_belt_vertical =
   }
 super_belt_ending_top =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -26,7 +26,7 @@ super_belt_ending_top =
   }
 super_belt_ending_bottom =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -35,7 +35,7 @@ super_belt_ending_bottom =
   }
 super_belt_ending_side =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -44,7 +44,7 @@ super_belt_ending_side =
   }
 super_belt_starting_top =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -53,7 +53,7 @@ super_belt_starting_top =
   }
 super_belt_starting_bottom =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -62,7 +62,7 @@ super_belt_starting_bottom =
   }
 super_belt_starting_side =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -73,7 +73,7 @@ super_belt_starting_side =
   
 extreme_belt_horizontal =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -81,7 +81,7 @@ extreme_belt_horizontal =
   }
 extreme_belt_vertical =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -90,7 +90,7 @@ extreme_belt_vertical =
   }
 extreme_belt_ending_top =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -99,7 +99,7 @@ extreme_belt_ending_top =
   }
 extreme_belt_ending_bottom =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -108,7 +108,7 @@ extreme_belt_ending_bottom =
   }
 extreme_belt_ending_side =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -117,7 +117,7 @@ extreme_belt_ending_side =
   }
 extreme_belt_starting_top =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -126,7 +126,7 @@ extreme_belt_starting_top =
   }
 extreme_belt_starting_bottom =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -135,7 +135,7 @@ extreme_belt_starting_bottom =
   }
 extreme_belt_starting_side =
   {
-    filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+    filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
     priority = "extra-high",
     width = 40,
     height = 40,
@@ -148,7 +148,7 @@ data:extend(
   {
     type = "transport-belt",
     name = "super-transport-belt",
-    icon = "__NadeoMod__/graphics/transport-belts/icon/super-transport-belt.png",
+    icon = "__NadeoMod__/graphics/transport-belt/icon/super-transport-belt.png",
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.3, result = "super-transport-belt"},
     max_health = 50,
@@ -174,7 +174,7 @@ data:extend(
     animation_speed_coefficient = 32,
     animations =
     {
-      filename = "__NadeoMod__/graphics/transport-belts/super-transport-belt.png",
+      filename = "__NadeoMod__/graphics/transport-belt/super-transport-belt.png",
       priority = "extra-high",
       width = 40,
       height = 40,
@@ -196,7 +196,7 @@ data:extend(
   {
     type = "transport-belt",
     name = "extreme-transport-belt",
-    icon = "__NadeoMod__/graphics/transport-belts/icon/extreme-transport-belt.png",
+    icon = "__NadeoMod__/graphics/transport-belt/icon/extreme-transport-belt.png",
     flags = {"placeable-neutral", "player-creation"},
     minable = {hardness = 0.2, mining_time = 0.3, result = "extreme-transport-belt"},
     max_health = 50,
@@ -222,7 +222,7 @@ data:extend(
     animation_speed_coefficient = 32,
     animations =
     {
-      filename = "__NadeoMod__/graphics/transport-belts/extreme-transport-belt.png",
+      filename = "__NadeoMod__/graphics/transport-belt/extreme-transport-belt.png",
       priority = "extra-high",
       width = 40,
       height = 40,

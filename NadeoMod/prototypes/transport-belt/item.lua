@@ -3,7 +3,7 @@ data:extend(
   {
     type = "item",
     name = "super-transport-belt",
-    icon = "__NadeoMod__/graphics/transport-belts/icon/super-transport-belt.png",
+    icon = "__NadeoMod__/graphics/transport-belt/icon/super-transport-belt.png",
     flags = {"goes-to-quickbar"},
     subgroup = "belt",
     order = "a[transport-belt]-d[super-transport-belt]",
@@ -13,7 +13,7 @@ data:extend(
   {
     type = "item",
     name = "extreme-transport-belt",
-    icon = "__NadeoMod__/graphics/transport-belts/icon/extreme-transport-belt.png",
+    icon = "__NadeoMod__/graphics/transport-belt/icon/extreme-transport-belt.png",
     flags = {"goes-to-quickbar"},
     subgroup = "belt",
     order = "a[transport-belt]-e[extreme-transport-belt]",
