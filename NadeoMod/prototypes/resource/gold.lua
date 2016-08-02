@@ -45,15 +45,15 @@ data:extend(
           starting_area_weight_range = 0,
           starting_area_weight_max_range = 2,
         },
-        {
-          influence = 0.55,
-          noise_layer = "gold-ore",
-          noise_octaves_difference = -2.3,
-          noise_persistence = 0.4,
-          starting_area_weight_optimal = 1,
-          starting_area_weight_range = 0,
-          starting_area_weight_max_range = 2,
-        },
+         {
+           influence = 0.55,
+           noise_layer = "gold-ore",
+           noise_octaves_difference = -2.3,
+           noise_persistence = 0.4,
+           starting_area_weight_optimal = 1,
+           starting_area_weight_range = 0,
+           starting_area_weight_max_range = 2,
+         },
         {
           influence = -0.2,
           max_influence = 0,
@@ -63,7 +63,7 @@ data:extend(
         },
       },
     },
-    stage_counts = {600, 500, 400, 300, 200, 100, 40, 20},
+    stage_counts = {600, 500, 400, 300, 200},
     stages =
     {
       sheet =
