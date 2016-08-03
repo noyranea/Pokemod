@@ -16,7 +16,7 @@ function CreateDrone(Data)
 			collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
 			selection_box = {{-0.4, -0.7}, {0.7, 0.4}},
 			attack_parameters = Data.Attack,
-			vision_distance = 30,
+			vision_distance = 0,
 			movement_speed = Data.MovementSpeed,
 			distance_per_frame = 0.1,
 			pollution_to_join_attack = 20000000,
@@ -65,7 +65,7 @@ end
 local CombatDroneLazerAttack = {
 	type = "projectile",
 	ammo_category = "combat-robot-laser",
-	cooldown = 20, damage_modifier = 3000,
+	cooldown = 20, damage_modifier = 0,
 	projectile_center = {0, 0}, projectile_creation_distance = 0.6,
 	range = 18,
 	ammo_type =
@@ -157,7 +157,7 @@ CreateDrone({
 	Resists = {{type = "physical",percent = 10},{type = "acid",percent = 50},{type = "electric",percent = 90}},
 	Attack = CombatDroneLazerAttack,
 	MovementSpeed = 0.15,
-	Recipe = {{"iron-ore", 1}},
+	Recipe = {{"iron-plate", 1}},
 	Collisions = {"ghost-layer"},
 	RunAnimation = {
 		filename = "__NadeoMod__/graphics/raikou/sheet.png",

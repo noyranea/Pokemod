@@ -11,13 +11,15 @@ require "defines"
 MoSave = require "mologiccore.base"
 ModInterface,MoConfig = {},{} local M = MoConfig
 
-require "scripts.dronescore"
+
 	
 remote.add_interface("MoCombat", ModInterface)
 
 function Intialize()
 	MoTimers.CreateTimer("ManageCombatDronePosts",1,0,false,ManageCombatDronePosts)
 	MoTimers.CreateTimer("ManageCombatDroneAi",1,0,false,ManageCombatDroneAi)
+	MoTimers.CreateTimer("SpawnPokemonNearPlayer",1,0,false,SpawnPokemonNearPlayer)
+	MoTimers.CreateTimer("ManageWildPokemonAI",1,0,false,ManageWildPokemonAI)
 end
 
 script.on_configuration_changed(Intialize)
