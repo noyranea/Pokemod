@@ -11,53 +11,138 @@ data:extend(
 	place_result = "pokeball-empty-token",
 	stack_size = 20,
 },
+    -- module_specification =
+    -- {
+      -- module_slots = 2,
+      -- module_info_icon_shift = {0, 0.8}
+    -- },
+    -- allowed_effects = {"consumption", "speed", "productivity", "pollution"},
+    -- crafting_categories = {"smelting"},
+    -- result_inventory_size = 1,
+    -- crafting_speed = 2,
+    -- energy_usage = "180kW",
+    -- source_inventory_size = 1,
+    -- energy_source =
+    -- {
+      -- type = "electric",
+      -- usage_priority = "secondary-input",
+      -- emissions = 0.005
+    -- },
+    -- vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+    -- working_sound =
+    -- {
+      -- sound =
+      -- {
+        -- filename = "__base__/sound/electric-furnace.ogg",
+        -- volume = 0.7
+      -- },
+      -- apparent_volume = 1.5
+    -- },
+    -- animation =
+    -- {
+      -- filename = "__base__/graphics/entity/electric-furnace/electric-furnace-base.png",
+      -- priority = "high",
+      -- width = 129,
+      -- height = 100,
+      -- frame_count = 1,
+      -- shift = {0.421875, 0}
+    -- },
+    -- working_visualisations =
+    -- {
+      -- {
+        -- animation =
+        -- {
+          -- filename = "__base__/graphics/entity/electric-furnace/electric-furnace-heater.png",
+          -- priority = "high",
+          -- width = 25,
+          -- height = 15,
+          -- frame_count = 12,
+          -- animation_speed = 0.5,
+          -- shift = {0.015625, 0.890625}
+        -- },
+        -- light = {intensity = 0.4, size = 6, shift = {0.0, 1.0}}
+      -- },
+      -- {
+        -- animation =
+        -- {
+          -- filename = "__base__/graphics/entity/electric-furnace/electric-furnace-propeller-1.png",
+          -- priority = "high",
+          -- width = 19,
+          -- height = 13,
+          -- frame_count = 4,
+          -- animation_speed = 0.5,
+          -- shift = {-0.671875, -0.640625}
+        -- }
+      -- },
+      -- {
+        -- animation =
+        -- {
+          -- filename = "__base__/graphics/entity/electric-furnace/electric-furnace-propeller-2.png",
+          -- priority = "high",
+          -- width = 12,
+          -- height = 9,
+          -- frame_count = 4,
+          -- animation_speed = 0.5,
+          -- shift = {0.0625, -1.234375}
+        -- }
+      -- }
+    -- },
+    -- fast_replaceable_group = "furnace"
 {
-    type = "transport-belt",
+    type = "furnace",
     name = "pokeball-empty-token",
     icon = "__base__/graphics/icons/basic-transport-belt.png",
     flags = {"placeable-neutral", "player-creation"},
-    minable = {hardness = 0.2, mining_time = 0.3, result = "basic-transport-belt"},
-    max_health = 50,
-    corpse = "small-remnants",
-    resistances =
-    {
-      {
-        type = "fire",
-        percent = 60
-      }
+	max_health = 50,
+	collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+	--render_layer= "smoke",
+	source_inventory_size = 1,
+    idle_animation = {
+		filename = "__NadeoMod__/graphics/raikou/sheet.png",
+		line_length = 3,
+		width = 37,
+		height = 37,
+		frame_count = 3,
+		direction_count = 8,
+		priority = "high",
+	
+     -- filename = "__NadeoMod__/graphics/raikou/pokeball_lights.png",
+     -- priority = "extra-high",
+     -- width = 32,
+     -- height = 32,
+     -- frame_count = 25,
+     -- direction_count = 1,
+	 -- line_length = 5,
     },
-    collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
-    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-    working_sound =
+	crafting_categories = {"smelting"},
+	 result_inventory_size = 1,
+    energy_usage = "0kW",
+    crafting_speed = 3,
+    energy_source =
     {
-      sound =
-      {
-        filename = "__base__/sound/basic-transport-belt.ogg",
-        volume = 0.4
-      },
-      max_sounds_per_type = 3
-    },
-    animation_speed_coefficient = 32,
-    animations =
-    {
-      filename = "__base__/graphics/entity/basic-transport-belt/basic-transport-belt.png",
-      priority = "extra-high",
-      width = 40,
-      height = 40,
-      frame_count = 16,
-      direction_count = 12
-    },
-    belt_horizontal = basic_belt_horizontal,
-    belt_vertical = basic_belt_vertical,
-    ending_top = basic_belt_ending_top,
-    ending_bottom = basic_belt_ending_bottom,
-    ending_side = basic_belt_ending_side,
-    starting_top = basic_belt_starting_top,
-    starting_bottom = basic_belt_starting_bottom,
-    starting_side = basic_belt_starting_side,
-    ending_patch = ending_patch_prototype,
-    fast_replaceable_group = "transport-belt",
-    speed = 0.03125
+     type = "electric",
+	 buffer_capacity = "3kW",
+     usage_priority = "secondary-input",
+     emissions = 0.005
+     },
+	animation = {
+		filename = "__NadeoMod__/graphics/raikou/sheet.png",
+		line_length = 3,
+		width = 37,
+		height = 37,
+		frame_count = 3,
+		direction_count = 8,
+		priority = "high",
+	
+     -- filename = "__NadeoMod__/graphics/raikou/pokeball_lights.png",
+     -- priority = "extra-high",
+     -- width = 32,
+     -- height = 32,
+     -- frame_count = 25,
+     -- direction_count = 1,
+	 -- line_length = 5,
+    }
 },
 
 {
@@ -128,6 +213,8 @@ data:extend(
 		frame_count = 10,
 		direction_count = 1,
 		priority = "high",
+		animation_speed = 0.3,
+		run_mode="backward",
 		shift = {0, 0}
 	},
     shadow =

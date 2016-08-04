@@ -21,7 +21,7 @@ function CreateDrone(Data)
 			distance_per_frame = 0.1,
 			pollution_to_join_attack = 20000000,
 			distraction_cooldown = 300,
-			corpse = "small-remnants",
+			--corpse = "small-remnants",
 			destroy_action =
 			{
 			  type = "direct",
@@ -95,61 +95,6 @@ local CombatDroneLazerAttack = {
 		shift = {0, 0}
 	}
 }
-
-local CombatDroneGunAttack = {
-  type = "projectile",
-  ammo_category = "bullet",
-  cooldown = 20,
-  projectile_center = {0, 1},
-  projectile_creation_distance = 0.6,
-  range = 15,
-  sound = make_light_gunshot_sounds(),
-  ammo_type =
-  {
-	category = "bullet",
-	action =
-	{
-	  type = "direct",
-	  action_delivery =
-	  {
-		type = "instant",
-		source_effects =
-		{
-		  type = "create-explosion",
-		  entity_name = "explosion-gunshot-small"
-		},
-		target_effects =
-		{
-		  {
-			type = "create-entity",
-			entity_name = "explosion-hit"
-		  },
-		  {
-			type = "damage",
-			damage = { amount = 5 , type = "physical"}
-		  }
-		}
-	  }
-	}
-  },
-	animation = {
-	  width = 102,
-	  height = 86,
-	  scale=0.3,
-	  frame_count = 2,
-	  direction_count = 64,
-	  shift = {0, -0.05625},
-	  animation_speed = 8,
-	  max_advance = 0.2,
-	  stripes =
-	  {
-		{filename = "__base__/graphics/entity/car/car-1.png",width_in_frames = 2,height_in_frames = 22,},
-		{filename = "__base__/graphics/entity/car/car-2.png",width_in_frames = 2,height_in_frames = 22,},
-		{filename = "__base__/graphics/entity/car/car-3.png",width_in_frames = 2,height_in_frames = 20,},
-	  }
-	}
-}
-
 CreateDrone({
 	Name = "attack-drone",
 	Icon = "__base__/graphics/icons/logistic-robot.png",
@@ -171,12 +116,25 @@ CreateDrone({
 	}
 })
 
+data.raw.unit["small-biter"].corpse = ""
+data.raw.unit["small-biter"].run_animation = {
+		filename = "__NadeoMod__/graphics/raikou/sheet.png",
+		line_length = 3,
+		width = 37,
+		height = 37,
+		frame_count = 3,
+		direction_count = 8,
+		priority = "high",
+		shift = {0, 0}
+	}
+data.raw.unit["small-biter"].movement_speed = 0.01
+	
 data:extend(
 {
   {
     type = "unit",
     name = "small-biter-ko",
-    icon = "__base__/graphics/icons/small-biter.png",
+    icon = "__NadeoMod__/graphics/raikou/icon_raikou.png",
     flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air"},
     max_health = 15,
     order = "b-b-a",
@@ -187,48 +145,51 @@ data:extend(
     attack_parameters =
     {
       type = "projectile",
-      range = 0,
+      range = 1,
       cooldown = 35,
       ammo_category = "melee",
       ammo_type = make_unit_melee_ammo_type(6),
       sound = make_biter_roars(0.5),
       animation = biterattackanimation(smallbiterscale, small_biter_tint1, small_biter_tint2)
     },
-    vision_distance = 0,
-    movement_speed = 0,
+    vision_distance = 100,
+    movement_speed = 0.01,
     distance_per_frame = 0.1,
     pollution_to_join_attack = 200,
     distraction_cooldown = 300,
     corpse = "small-biter-corpse",
     dying_explosion = "blood-explosion-small",
     dying_sound =  make_biter_dying_sounds(1.0),
-    working_sound =  make_biter_calls(0.7),
+    --working_sound =  make_biter_calls(0.7),
+	animation  =  {
+		direction_count = 1,
+		filename = "__NadeoMod__/graphics/raikou/raikou_ko.png",
+		line_length = 2,
+		width = 28,
+		height = 27,
+		frame_count = 2,
+		priority = "high",
+		shift = {0, 0}
+	}, 
+	idle_animation = {
+		direction_count = 1,
+		filename = "__NadeoMod__/graphics/raikou/raikou_ko.png",
+		line_length = 2,
+		width = 28,
+		height = 27,
+		frame_count = 2,
+		priority = "high",
+		shift = {0, 0}
+	}, 
     run_animation = {
-		filename = "__NadeoMod__/graphics/raikou/sheet.png",
-		line_length = 3,
-		width = 37,
-		height = 37,
-		frame_count = 3,
-		direction_count = 8,
+		filename = "__NadeoMod__/graphics/raikou/raikou_ko.png",
+		line_length = 2,
+		width = 28,
+		height = 27,
+		frame_count = 2,
+		direction_count = 1,
 		priority = "high",
 		shift = {0, 0}
 	}
   }
 })
-
-data.raw.projectile["defender-capsule"].action =  {
-      type = "direct",
-      action_delivery =
-      {
-        type = "instant",
-        target_effects =
-        {
-          {
-            type = "create-entity",
-            show_in_tooltip = true,
-			trigger_created_entity= true,
-            entity_name = "attack-drone",
-          },
-        }
-      }
-    }

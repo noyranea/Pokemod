@@ -45,7 +45,9 @@ else if event.entity.name == "pokeball-empty-token"
 											{name="pokeball-raikou", count=1})
 			end
 		end
-		event.entity.destroy()
+		event.entity.energy = event.entity.electric_buffer_size
+		game.player.print(event.entity.name..event.entity.energy..event.entity.electric_buffer_size)
+		--MoEntity.AddToLoop("captureballs",event.entity) --event.entity.destroy()
 	end
 	end
 end)
