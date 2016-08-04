@@ -30,6 +30,31 @@ for i,d in pairs(Drones.DroneTypes) do
 	MoEntity.SubscribeOnBuilt(d,"dronedetectspawn",Drones.SetupDrone)
 end
 
+script.on_event(defines.events.on_trigger_created_entity, function(event)
+if event.entity.name == "attack-drone"
+then Drones.SetupDrone(event.entity, false)
+else if event.entity.name == "pokeball-empty-token"
+	then local Scan = game.surfaces.nauvis.find_entities_filtered{area={{event.entity.position.x-20, event.entity.position.y-20},{event.entity.position.x+20, event.entity.position.y+20}},
+															type="unit", force="neutral"}
+		game.player.print("capture token created")
+		for i,u in pairs(Scan) do
+			game.player.print(u.name)
+			if (u.name == "small-biter-ko")
+			then u.destroy()
+				game.surfaces.nauvis.spill_item_stack(event.entity.position, 
+											{name="pokeball-raikou", count=1})
+			end
+		end
+		event.entity.destroy()
+	end
+	end
+end)
+
+
 --For each storage type we want to act as a combat robotics port.
 MoEntity.SubscribeOnBuilt("combat-roboport-smart","combatroboport",function(entity) MoEntity.AddToLoop("combatroboticspost",entity) end)
 MoEntity.SubscribeOnBuilt("combat-drone-wagon","combatrobowagon",function(entity) MoEntity.AddToLoop("combatroboticspost",entity) end)
+
+if MoConfig.MegaTank then
+	MoEntity.SubscribeOnBuilt("mega-tank","megatankcombatroboport",function(entity) MoEntity.AddToLoop("combatroboticspost",entity) end)
+end

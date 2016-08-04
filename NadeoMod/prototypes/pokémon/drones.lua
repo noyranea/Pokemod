@@ -16,7 +16,7 @@ function CreateDrone(Data)
 			collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
 			selection_box = {{-0.4, -0.7}, {0.7, 0.4}},
 			attack_parameters = Data.Attack,
-			vision_distance = 0,
+			vision_distance = 30,
 			movement_speed = Data.MovementSpeed,
 			distance_per_frame = 0.1,
 			pollution_to_join_attack = 20000000,
@@ -65,7 +65,7 @@ end
 local CombatDroneLazerAttack = {
 	type = "projectile",
 	ammo_category = "combat-robot-laser",
-	cooldown = 20, damage_modifier = 0,
+	cooldown = 20, damage_modifier = 3000,
 	projectile_center = {0, 0}, projectile_creation_distance = 0.6,
 	range = 18,
 	ammo_type =
@@ -157,7 +157,7 @@ CreateDrone({
 	Resists = {{type = "physical",percent = 10},{type = "acid",percent = 50},{type = "electric",percent = 90}},
 	Attack = CombatDroneLazerAttack,
 	MovementSpeed = 0.15,
-	Recipe = {{"iron-plate", 1}},
+	Recipe = {{"iron-ore", 1}},
 	Collisions = {"ghost-layer"},
 	RunAnimation = {
 		filename = "__NadeoMod__/graphics/raikou/sheet.png",
@@ -170,3 +170,65 @@ CreateDrone({
 		shift = {0, 0}
 	}
 })
+
+data:extend(
+{
+  {
+    type = "unit",
+    name = "small-biter-ko",
+    icon = "__base__/graphics/icons/small-biter.png",
+    flags = {"placeable-player", "placeable-enemy", "placeable-off-grid", "breaths-air"},
+    max_health = 15,
+    order = "b-b-a",
+    subgroup="enemies",
+    healing_per_tick = 0.01,
+    collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
+    selection_box = {{-0.4, -0.7}, {0.7, 0.4}},
+    attack_parameters =
+    {
+      type = "projectile",
+      range = 0,
+      cooldown = 35,
+      ammo_category = "melee",
+      ammo_type = make_unit_melee_ammo_type(6),
+      sound = make_biter_roars(0.5),
+      animation = biterattackanimation(smallbiterscale, small_biter_tint1, small_biter_tint2)
+    },
+    vision_distance = 0,
+    movement_speed = 0,
+    distance_per_frame = 0.1,
+    pollution_to_join_attack = 200,
+    distraction_cooldown = 300,
+    corpse = "small-biter-corpse",
+    dying_explosion = "blood-explosion-small",
+    dying_sound =  make_biter_dying_sounds(1.0),
+    working_sound =  make_biter_calls(0.7),
+    run_animation = {
+		filename = "__NadeoMod__/graphics/raikou/sheet.png",
+		line_length = 3,
+		width = 37,
+		height = 37,
+		frame_count = 3,
+		direction_count = 8,
+		priority = "high",
+		shift = {0, 0}
+	}
+  }
+})
+
+data.raw.projectile["defender-capsule"].action =  {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        target_effects =
+        {
+          {
+            type = "create-entity",
+            show_in_tooltip = true,
+			trigger_created_entity= true,
+            entity_name = "attack-drone",
+          },
+        }
+      }
+    }

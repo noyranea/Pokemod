@@ -73,7 +73,6 @@ else
 		require "scripts.entity"
 	end
 	
-	require "scripts.dronescore"
 	require "scripts.pokemon_ko"
 	
 	for i,d in pairs(PostInit) do d() end PostInit = nil

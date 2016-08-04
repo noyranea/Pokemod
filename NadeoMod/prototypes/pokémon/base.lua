@@ -64,10 +64,12 @@ data:extend(
   }
 })
 
+
+require "pokeball"
 require "drones"
 require "dronetower"
 require "dronewagon"
 require "dronecommandtower"
 require "orders"
 require "reversecomp"
-require "wildbiter"
+
