@@ -7,6 +7,7 @@ MLC = {
 }
 
 require "defines"
+require "math"
 
 MoSave = require "mologiccore.base"
 ModInterface,MoConfig = {},{} local M = MoConfig
@@ -16,19 +17,34 @@ require "scripts.dronescore"
 remote.add_interface("MoCombat", ModInterface)
 
 function Intialize()
-	MoTimers.CreateTimer("ManageCombatDronePosts",1,0,false,ManageCombatDronePosts)
-	MoTimers.CreateTimer("ManageCombatDroneAi",1,0,false,ManageCombatDroneAi)
-	MoTimers.CreateTimer("RotateCaptureBalls", 0.1, 0, false, RotateCaptureBalls)
+	MoTimers.CreateTimer("ManageCombatDronePosts",60,0,false,ManageCombatDronePosts)
+	MoTimers.CreateTimer("ManageCombatDroneAi",60,0,false,ManageCombatDroneAi)
 end
 
-function RotateCaptureBalls()
-	MoEntity.CallLoop("captureballs",function(data)
-		local E = MoEntity.KeyToEnt(data.entity)
-		E.orientation = E.orientation + 14
-		game.player.print(""..E.orientation)
-	end)
+function Spawn(data)
+	if (data.isItemOrElseEntity)
+	then
+		game.surfaces.nauvis.spill_item_stack(	data.position, 
+												{	name	= data.name,
+													count	=1 })
+	else
+		--game.player.print("spawning entity "..data.name.."with force"..data.force);
+		if (data.force == "neutral") then
+			game.surfaces.nauvis.create_entity{	name 		= data.name, 
+											position 	= data.position, 
+											force 		= game.forces.neutral }
+		elseif (data.force == "enemy") then
+			game.surfaces.nauvis.create_entity{	name 		= data.name, 
+											position 	= data.position, 
+											force 		= game.forces.enemy }
+		else
+			game.surfaces.nauvis.create_entity{	name 		= data.name, 
+											position 	= data.position, 
+											force 		= game.forces.player }
+		end
+	end
 end
-MoTimers.CacheFunction("RotateCaptureBalls",RotateCaptureBalls)
+MoTimers.CacheFunction("Spawn",Spawn)
 
 script.on_configuration_changed(Intialize)
 script.on_init(Intialize) 
@@ -45,7 +61,7 @@ script.on_event(defines.events.on_player_created, function(event)
 	then player.print(""..c.name)
 	end
   end
-	game.surfaces.nauvis.create_entity{	name = "small-biter", 
+	game.surfaces.nauvis.create_entity{	name = "small-biter-ko", 
 										position = game.surfaces.nauvis.find_non_colliding_position("small-biter", player.position, 20, 5),
-										force = game.forces.enemy }
+										force = game.forces.neutral }
 end)

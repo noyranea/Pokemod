@@ -39,7 +39,7 @@ FuncRegister("CreateTimer",function(Name,Length,Repeat,Over,CallBack,Data)
 		Timers[Name]={
 			Name=Name, --Timer name/ID
 			Repeat=Repeat, --How many times the timer repeats.
-			Nxt=Tick+(Length*60), --When the timer is called again.
+			Nxt=Tick+Length, --When the timer is called again.
 			Dur=Length, --Internal Value for timer length.
 			Del=false, --Internal Value for trash management.
 			CallBack="CB"..Name, --CallBack Function.
@@ -51,7 +51,7 @@ FuncRegister("CreateTimer",function(Name,Length,Repeat,Over,CallBack,Data)
 			O=Over,T={
 				Name=Name, --Timer name/ID
 				Repeat=Repeat, --How many times the timer repeats.
-				Nxt=Tick+(Length*60), --When the timer is called again.
+				Nxt=Tick+Length, --When the timer is called again.
 				Dur=Length, --Internal Value for timer length.
 				Del=false, --Internal Value for trash management.
 				CallBack="CB"..Name, --CallBack Function.
@@ -90,7 +90,7 @@ script.on_event(defines.events.on_tick, function(event) --Timer Master Think.
 			--game.player.print("Timering: "..d.Name)
 			if d.Repeat > 1 or d.Repeat == 0 then
 				if d.Repeat>1 then d.Repeat = d.Repeat-1 end
-				d.Nxt = game.tick+(d.Dur*60)--It keeps going... and going.
+				d.Nxt = game.tick+d.Dur--It keeps going... and going.
 			else
 				d.Del=true--Set the timer to be deleted.
 			end

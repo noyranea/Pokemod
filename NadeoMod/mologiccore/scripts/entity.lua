@@ -328,6 +328,11 @@ FuncRegister("EntToKey",RegKey)
 function GetEnt(Key) return Entitys.Ents[Key] end
 FuncRegister("KeyToEnt",GetEnt)
 
+FuncRegister("AddToLoop_NoEntity", function(Name,Key, Ex)
+	if not Loops[Name] then Loops[Name] = {Name=Name,Ents={}} end
+	Loops[Name].Ents[Key]={entity=Key,extra=Ex}
+end)
+
 FuncRegister("AddToLoop",function(Name,Ent,Ex)
 	if not Loops[Name] then Loops[Name] = {Name=Name,Ents={}} end
 	local Key = RegKey(Ent)
