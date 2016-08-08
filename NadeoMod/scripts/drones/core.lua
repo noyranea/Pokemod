@@ -31,14 +31,14 @@ for i,d in pairs(Drones.DroneTypes) do
 end
 
 script.on_event(defines.events.on_trigger_created_entity, function(event)
-if event.entity.name == "attack-drone"
+if event.entity.name == "raikou-domestic"
 then Drones.SetupDrone(event.entity, false)
 elseif event.entity.name == "pokeball-empty-token"
 	then local Scan = game.surfaces.nauvis.find_entities_filtered{area={{event.entity.position.x-0.5, event.entity.position.y-0.5},{event.entity.position.x+0.5, event.entity.position.y+0.5	}},
 															type="unit", force="neutral"}
 		for i,u in pairs(Scan) do
 			--game.players[0].print(u.name)
-			if (u.name == "small-biter-ko")
+			if (u.name == "raikou-wild-ko")
 			then 
 				--game.surfaces.nauvis.spill_item_stack(event.entity.position, 
 				--							{name="pokeball-raikou", count=1})
@@ -54,7 +54,7 @@ elseif event.entity.name == "pokeball-empty-token"
 																			force 		= game.forces.neutral }
 					MoTimers.CreateTimer("Unspawn_Capture", 3*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
 					MoTimers.CreateTimer("Spawn_Capture", 1.8*60, 1, false, Spawn, {	isItemOrElseEntity 	= false,
-																					name				= "small-biter-ko",
+																					name				= "raikou-wild-ko",
 																					position			= pos,
 																					force				= "neutral"
 																			})
@@ -64,7 +64,7 @@ elseif event.entity.name == "pokeball-empty-token"
 																			force 		= game.forces.neutral }
 					MoTimers.CreateTimer("Unspawn_Capture", 4*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
 					MoTimers.CreateTimer("Spawn_Capture", (4*2/3-0.2)*60, 1, false, Spawn, {	isItemOrElseEntity 	= false,
-																								name				= "small-biter-ko",
+																								name				= "raikou-wild-ko",
 																								position			= pos,
 																								force				= "neutral"
 																			})
@@ -74,7 +74,7 @@ elseif event.entity.name == "pokeball-empty-token"
 																			force 		= game.forces.neutral }
 					MoTimers.CreateTimer("Unspawn_Capture", 5*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
 					MoTimers.CreateTimer("Spawn_Capture", (5*2/3-0.2)*60, 1, false, Spawn, {	isItemOrElseEntity 	= false,
-																								name				= "small-biter-ko",
+																								name				= "raikou-wild-ko",
 																								position			= pos,
 																								force				= "neutral"
 																							})
@@ -84,7 +84,7 @@ elseif event.entity.name == "pokeball-empty-token"
 																			force 		= game.forces.neutral }
 					MoTimers.CreateTimer("Unspawn_Capture", 5*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
 					MoTimers.CreateTimer("Spawn_Capture", 5*2/3*60, 1, false, Spawn, {	isItemOrElseEntity 	= true,
-																						name				= "pokeball-raikou",
+																						name				= "raikou",
 																						position			= pos,
 																						force				= "player"
 																					})

@@ -1,8 +1,8 @@
 local KTE,RegKey = MoEntity.KeyToEnt,MoEntity.EntToKey
 
 script.on_event(defines.events.on_entity_died, function(event)
-	if (event.entity.name == "small-biter") then
-	game.surfaces.nauvis.create_entity{	name = "small-biter-ko", 
+	if (event.entity.name == "raikou-wild") then
+	game.surfaces.nauvis.create_entity{	name = "raikou-wild-ko", 
 										position = event.entity.position, 
 										force = game.forces.neutral }
 	end

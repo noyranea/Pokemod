@@ -1,3 +1,5 @@
+
+
 function CreateDrone(Data)
 	data:extend(
 	{
@@ -194,23 +196,3 @@ data:extend(
 	}
   }
 })
-
-
--- Disable the enemies at start and during chunk generation
-for index, unitspawner in pairs(data.raw["unit-spawner"]) do
-	if unitspawner.autoplace.force == "enemy" then
-		unitspawner.autoplace = null
-	end
-end
-for index, turret in pairs(data.raw["turret"]) do
-	if turret.autoplace.force == "enemy" then
-		turret.autoplace = null
-	end
-end
-
--- Make sure no enemy will evolve or spawn (not sure if needed but just in case)
-data.raw["map-settings"]["map-settings"].enemy_evolution.enabled = false;
-data.raw["map-settings"]["map-settings"].enemy_expansion.enabled = false;
-
--- Remove enemy options from map generator dialog
-data.raw["autoplace-control"]["enemy-base"] = null

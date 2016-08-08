@@ -6,7 +6,7 @@ MLC = {
 	Debug=false --Load the debug module?
 }
 
---require "defines"
+require "defines"
 require "math"
 
 MoSave = require "mologiccore.base"
@@ -26,17 +26,20 @@ script.on_init(Intialize)
 
 script.on_event(defines.events.on_player_created, function(event)
   local player = game.players[event.player_index]
-  player.insert("pokeball-raikou")
-  player.insert("pokeball-empty")
-  player.insert("solid-fuel")
-  player.insert("iron-ore")
+  --player.insert("pokeball-raikou")
+  --player.insert("pokeball-empty")
+  --player.insert("solid-fuel")
+  --player.insert("iron-ore")
+  player.insert("raikou")
+  player.insert("raikou")
+  player.insert("raikou")
   --player.character_running_speed_modifier = 10
   for i,c in pairs(game.item_prototypes) do
 	if (c.type == "capsule")
 	then player.print(""..c.name)
 	end
   end
-	game.surfaces.nauvis.create_entity{	name = "small-biter-ko", 
-										position = game.surfaces.nauvis.find_non_colliding_position("small-biter", player.position, 20, 5),
+	game.surfaces.nauvis.create_entity{	name = "raikou-wild-ko", 
+										position = game.surfaces.nauvis.find_non_colliding_position("raikou-wild-ko", player.position, 20, 5),
 										force = game.forces.neutral }
 end)

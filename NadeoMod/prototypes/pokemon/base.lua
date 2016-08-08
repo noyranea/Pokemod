@@ -66,7 +66,8 @@ data:extend(
 
 
 require "pokeball"
-require "drones"
+require "helpers"
+--require "drones"
 require "dronetower"
 require "dronewagon"
 require "dronecommandtower"
