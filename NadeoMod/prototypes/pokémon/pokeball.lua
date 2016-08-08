@@ -32,21 +32,78 @@ data:extend(
     subgroup="corpses",
     order = "c[corpse]-a[biter]-a[small]",
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"},
-    dying_speed = 0.0001,
-    time_before_removed = 180,
-    final_render_layer = "corpse",
+    dying_speed = 1 / (3 * 2 / 3 * 60),
+    time_before_removed = 60*60*15,
+	render_layer = "higher-object-above",
     animation = {
-		filename = "__NadeoMod__/graphics/raikou/pokeball_capture1.png",
-		line_length = 24,
-		width = 85,
-		height = 85,
-		frame_count = 48,
-		scale = 1,
+		stripes = {
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}, 
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_05.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_06.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_07.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_08.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}
+		},
+		width = 192,
+		height = 192,
+		scale = 0.6,
+		frame_count = 72,
 		direction_count = 1,
 		priority = "high",
-		animation_speed = 1,
-		--run_mode="backward",
-		shift = {0, 0}
 	}
 },
 {
@@ -58,21 +115,98 @@ data:extend(
     subgroup="corpses",
     order = "c[corpse]-a[biter]-a[small]",
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"},
-    dying_speed = 0.04,
-    time_before_removed = 240,
-    final_render_layer = "corpse",
+    dying_speed = 1 / (4 * 2/3 * 60),
+    time_before_removed = 60*60*15,
+    render_layer = "higher-object-above",
     animation = {
-		filename = "__NadeoMod__/graphics/raikou/pokeball_capture2.png",
-		line_length = 24,
-		width = 85,
-		height = 85,
-		scale = 2,
-		frame_count = 72,
+		stripes = {
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}, 
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_05.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_06.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_07.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_08.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}
+		},
+		width = 192,
+		height = 192,
+		scale = 0.6,
+		frame_count = 96,
 		direction_count = 1,
 		priority = "high",
-		animation_speed = 0.1,
-		--run_mode="backward",
-		shift = {0, 0}
 	}
 },
 {
@@ -84,21 +218,118 @@ data:extend(
     subgroup="corpses",
     order = "c[corpse]-a[biter]-a[small]",
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"},
-    dying_speed = 0.04,
-    time_before_removed = 300,
-    final_render_layer = "corpse",
+    dying_speed = 1 / (5 * 2/3 * 60),
+    time_before_removed = 60*60*15,
+    render_layer = "higher-object-above",
     animation = {
-		filename = "__NadeoMod__/graphics/raikou/pokeball_capture3.png",
-		line_length = 24,
-		width = 85,
-		height = 85,
-		frame_count = 96,
-		scale = 2,
+		stripes = {
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}, 
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_05.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_06.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_07.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_08.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}
+		},
+		width = 192,
+		height = 192,
+		scale = 0.6,
+		frame_count = 120,
 		direction_count = 1,
 		priority = "high",
-		animation_speed = 0.1,
-		--run_mode="backward",
-		shift = {0, 0}
 	}
 },
 {
@@ -110,21 +341,118 @@ data:extend(
     subgroup="corpses",
     order = "c[corpse]-a[biter]-a[small]",
     flags = {"placeable-neutral", "placeable-off-grid", "building-direction-8-way", "not-repairable", "not-on-map"},
-    dying_speed = 0.04,
-    time_before_removed = 600,
-    final_render_layer = "corpse",
+   dying_speed = 1 / (5 * 2/3 * 60),
+    time_before_removed = 60*60*15,
+    render_layer = "higher-object-above",
     animation = {
-		filename = "__NadeoMod__/graphics/raikou/pokeball_capture4.png",
-		line_length = 24,
-		width = 85,
-		height = 85,
-		scale = 1,
+		stripes = {
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}, 
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/lights_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_01.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_02.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_03.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			},
+			{
+				filename = "__NadeoMod__/graphics/capture/cap_04.png",
+				width_in_frames = 6,
+				height_in_frames = 1,
+			}
+		},
+		width = 192,
+		height = 192,
+		scale = 0.6,
 		frame_count = 120,
 		direction_count = 1,
 		priority = "high",
-		animation_speed = 2.4,
-		--run_mode="backward",
-		shift = {0, 0}
 	}
 },
 {

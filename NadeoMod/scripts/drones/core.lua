@@ -37,7 +37,7 @@ elseif event.entity.name == "pokeball-empty-token"
 	then local Scan = game.surfaces.nauvis.find_entities_filtered{area={{event.entity.position.x-0.5, event.entity.position.y-0.5},{event.entity.position.x+0.5, event.entity.position.y+0.5	}},
 															type="unit", force="neutral"}
 		for i,u in pairs(Scan) do
-			game.player.print(u.name)
+			--game.players[0].print(u.name)
 			if (u.name == "small-biter-ko")
 			then 
 				--game.surfaces.nauvis.spill_item_stack(event.entity.position, 
@@ -45,42 +45,49 @@ elseif event.entity.name == "pokeball-empty-token"
 				local pos = u.position
 				u.destroy()
 				local result = math.random(100)
-				if (result < 1000) then
-					game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse1", 
-														position 	= pos,
-														force 		= game.forces.neutral }
-					MoTimers.CreateTimer("Spawn_Capture", 60, 1, false, Spawn, {	isItemOrElseEntity 	= false,
+				for i,p in pairs(game.players) do
+					p.print("capture roll :"..result)
+				end
+				if (result < 30) then
+					local pokeball = game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse1", 
+																			position 	= pos,
+																			force 		= game.forces.neutral }
+					MoTimers.CreateTimer("Unspawn_Capture", 3*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
+					MoTimers.CreateTimer("Spawn_Capture", 1.8*60, 1, false, Spawn, {	isItemOrElseEntity 	= false,
 																					name				= "small-biter-ko",
 																					position			= pos,
 																					force				= "neutral"
 																			})
-				elseif (result < 30) then
-					game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse4", 
-														position 	= pos,
-														force 		= game.forces.neutral }
-					MoTimers.CreateTimer("Spawn_Capture", 120, 1, false, Spawn, {	isItemOrElseEntity 	= false,
-																					name				= "small-biter-ko",
-																						position			= pos,
-																						force				= "neutral"
+				elseif (result < 60) then
+					local pokeball = game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse2", 
+																			position 	= pos,
+																			force 		= game.forces.neutral }
+					MoTimers.CreateTimer("Unspawn_Capture", 4*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
+					MoTimers.CreateTimer("Spawn_Capture", (4*2/3-0.2)*60, 1, false, Spawn, {	isItemOrElseEntity 	= false,
+																								name				= "small-biter-ko",
+																								position			= pos,
+																								force				= "neutral"
 																			})
 				elseif (result < 90) then
-					game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse4", 
-														position 	= pos,
-														force 		= game.forces.neutral }
-					MoTimers.CreateTimer("Spawn_Capture", 180, 1, false, Spawn, {	isItemOrElseEntity 	= false,
-																					name				= "small-biter-ko",
-																					position			= pos,
-																					force				= "neutral"
-																			})
+					local pokeball = game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse3", 
+																			position 	= pos,
+																			force 		= game.forces.neutral }
+					MoTimers.CreateTimer("Unspawn_Capture", 5*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
+					MoTimers.CreateTimer("Spawn_Capture", (5*2/3-0.2)*60, 1, false, Spawn, {	isItemOrElseEntity 	= false,
+																								name				= "small-biter-ko",
+																								position			= pos,
+																								force				= "neutral"
+																							})
 				else
-					game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse4", 
-														position 	= pos,
-														force 		= game.forces.neutral }
-					MoTimers.CreateTimer("Spawn_Capture", 240, 1, false, Spawn, {	isItemOrElseEntity 	= true,
-																					name				= "pokeball-raikou",
-																					position			= pos,
-																					force				= "player"
-																			})
+					local pokeball = game.surfaces.nauvis.create_entity{	name 		= "pokeball-empty-token-corpse4", 
+																			position 	= pos,
+																			force 		= game.forces.neutral }
+					MoTimers.CreateTimer("Unspawn_Capture", 5*2/3*60, 1, false, Unspawn, { entity = RegKey(pokeball) })
+					MoTimers.CreateTimer("Spawn_Capture", 5*2/3*60, 1, false, Spawn, {	isItemOrElseEntity 	= true,
+																						name				= "pokeball-raikou",
+																						position			= pos,
+																						force				= "player"
+																					})
 				end
 			end
 			--event.entity.energy = event.entity.electric_buffer_size

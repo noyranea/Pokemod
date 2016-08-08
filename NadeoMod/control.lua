@@ -6,7 +6,7 @@ MLC = {
 	Debug=false --Load the debug module?
 }
 
-require "defines"
+--require "defines"
 require "math"
 
 MoSave = require "mologiccore.base"
@@ -21,36 +21,11 @@ function Intialize()
 	MoTimers.CreateTimer("ManageCombatDroneAi",60,0,false,ManageCombatDroneAi)
 end
 
-function Spawn(data)
-	if (data.isItemOrElseEntity)
-	then
-		game.surfaces.nauvis.spill_item_stack(	data.position, 
-												{	name	= data.name,
-													count	=1 })
-	else
-		--game.player.print("spawning entity "..data.name.."with force"..data.force);
-		if (data.force == "neutral") then
-			game.surfaces.nauvis.create_entity{	name 		= data.name, 
-											position 	= data.position, 
-											force 		= game.forces.neutral }
-		elseif (data.force == "enemy") then
-			game.surfaces.nauvis.create_entity{	name 		= data.name, 
-											position 	= data.position, 
-											force 		= game.forces.enemy }
-		else
-			game.surfaces.nauvis.create_entity{	name 		= data.name, 
-											position 	= data.position, 
-											force 		= game.forces.player }
-		end
-	end
-end
-MoTimers.CacheFunction("Spawn",Spawn)
-
 script.on_configuration_changed(Intialize)
 script.on_init(Intialize) 
 
 script.on_event(defines.events.on_player_created, function(event)
-  local player = game.get_player(event.player_index)
+  local player = game.players[event.player_index]
   player.insert("pokeball-raikou")
   player.insert("pokeball-empty")
   player.insert("solid-fuel")
