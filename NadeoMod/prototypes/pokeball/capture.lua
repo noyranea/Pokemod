@@ -1,0 +1,1 @@
+GenerateCaptureTokens("pokeball")

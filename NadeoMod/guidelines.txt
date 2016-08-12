@@ -1,0 +1,16 @@
+-- des appâts permettent d'attirer les pokémons pour les farmer
+-- attaquer les pokémons à côté de leurs nids n'est pas pérenne
+-- des structures permettent de capturer les pokémons ko avoisinants
+
+-- recettes
+
+-> turrets
+
+-> tech ball
+	-> pokeball
+
+-> tech adn extraction 1
+	-> 1er tier recettes
+	-> 1er tier machine
+	
+	

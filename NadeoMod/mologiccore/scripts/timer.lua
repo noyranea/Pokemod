@@ -31,11 +31,22 @@ FuncRegister("CacheFunction",function(Name,Function)
 end)
 
 --This creates a timer, which calls a function after a defined time.
-FuncRegister("CreateTimer",function(Name,Length,Repeat,Over,CallBack,Data)
+FuncRegister("CreateTimer",function(Name,Length,Repeat,DontOverride,AutoIncrementName,CallBack,Data)
 	local Tick = 0
 	if game then Tick = game.tick end
 	if IsLoaded then
-		if Timers[Name]~=nil and Over then return end --If we are given the dont overright flag, dont continue.
+		if Timers[Name]~=nil then
+			if (DontOverride) then --If we are given the dont overright flag, dont continue.
+				return
+			elseif (AutoIncrementName) then
+				local i = 0
+				while Timers[Name.."i"] ~= nil do
+					i = i + 1
+				end
+				Name = Name.."i"
+			end
+		end
+				
 		Timers[Name]={
 			Name=Name, --Timer name/ID
 			Repeat=Repeat, --How many times the timer repeats.
@@ -48,7 +59,7 @@ FuncRegister("CreateTimer",function(Name,Length,Repeat,Over,CallBack,Data)
 		Functions["CB"..Name]=CallBack
 	else
 		WaitingList[Name]={
-			O=Over,T={
+			O=DontOverride,T={
 				Name=Name, --Timer name/ID
 				Repeat=Repeat, --How many times the timer repeats.
 				Nxt=Tick+Length, --When the timer is called again.

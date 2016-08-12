@@ -14,7 +14,7 @@ function PrintString(Text)
 end
 
 ------------Event Handler------------
-Subscribed = {Built={},Death={},PlyCreated={},PlyDeath={},Removed={}}
+Subscribed = {Built={},Death={},PlyCreated={},PlyDeath={},Removed={}, TriggeredBuild={}}
 if MLC.Debug then Debug.RegisterTable("Subscribed",Subscribed) end
 
 local EventFuncs = {}
@@ -82,6 +82,19 @@ EventFuncs["Removed"] = function(event)
 	end	
 end
 
+EventFuncs["TriggeredBuild"] = function(event)
+	local ent = event.entity
+	if ent == nil or not ent.valid then return end -- nil entity don't run it.
+	
+	local Name = ent.name
+	if Subscribed.TriggeredBuild[Name] then
+		for i,d in pairs(Subscribed.TriggeredBuild[Name]) do
+			d.Func(ent)
+		end
+	end	
+end
+
+
 local EventTypes = {}
 EventTypes[defines.events.on_built_entity] = {"Built"}
 EventTypes[defines.events.on_robot_built_entity] = {"Built"}
@@ -89,6 +102,7 @@ EventTypes[defines.events.on_player_created] = {"PlyBuilt"}
 EventTypes[defines.events.on_entity_died] = {"PlyDeath","Death","Removed"}
 EventTypes[defines.events.on_preplayer_mined_item] = {"Removed"}
 EventTypes[defines.events.on_robot_pre_mined] = {"Removed"}
+EventTypes[defines.events.on_trigger_created_entity] = {"TriggeredBuild"}
 
 --This does all the hard work.
 local function EventHandler(event)
@@ -104,6 +118,7 @@ script.on_event(defines.events.on_entity_died, EventHandler)
 script.on_event(defines.events.on_player_created, EventHandler)
 script.on_event(defines.events.on_preplayer_mined_item, EventHandler)
 script.on_event(defines.events.on_robot_pre_mined, EventHandler)
+script.on_event(defines.events.on_trigger_created_entity, EventHandler)
 
 ------------Entity Related Events------------
 --Allows you to subscribe a function to be called when a entity is built.
@@ -156,8 +171,20 @@ end)
 
 --Allows you to remove a function from being called when a player is killed.
 FuncRegister("UnSubscribeOnPlayerKilled",function(Name) 
-	Subscribed.PlyDeath[Name]=nil
+	Subscribed.PlyDeath[Name]=nil 
 end)
+
+--Allows you to subscribe a function to be called when a entity is created with a trigger capsule.
+FuncRegister("SubscribeOnTriggeredBuild", function(Ent,Name,Func)
+	if Subscribed.TriggeredBuild[Ent] == nil then Subscribed.TriggeredBuild[Ent] = {} end
+	Subscribed.TriggeredBuild[Ent][Name]={Name=Name,Func=Func}
+end)
+
+--Allows you to remove a function from being called when a entity is created with a trigger capsule.
+FuncRegister("UnSubscribeOnTriggeredBuild",function(Name) 
+	Subscribed.TriggeredBuild[Name]=nil
+end)
+
 ------------Player Related------------
 --Shortcut to get the players positioning.
 FuncRegister("getplayerpos",function(I)

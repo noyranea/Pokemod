@@ -1,19 +1,30 @@
-local M = MoConfig
+require "pokemon-data"
 
-if M.TeslaTower then
-	require("tesla")
-end
+require "item-groups"
 
-if M.ForceFields then
-	require("forcefields")
-end
+-- Pokemon
+require "pokemon.helpers-pokemon"
+require "pokemon.unit"
+require "pokemon.item"
 
-if M.OtherMines then
-	require("othermines")
-end
+-- Pokeball
+require "pokeball.helpers-pokeball"
+require "pokeball.capture"
+require "pokeball.item"
+require "pokeball.recipe"
 
-if M.AttackDrones then
-	require("DroneDef.base")
-end
+require	"resource.pokemon-spawns"
+require	"structures.bait"
+require	"structures.capturators"
 
-require("deathchest")
+-- DNA
+require "dna.helpers-dna"
+require "dna.item"
+require "dna.recipe"
+require "dna.entity"
+
+-- Tech
+require "technology.pokeball"
+require "technology.dna"
+
+require "types"

@@ -8,17 +8,20 @@ MLC = {
 
 require "defines"
 require "math"
+require "string"
+
+require "scripts.pokemon-data"
 
 MoSave = require "mologiccore.base"
 ModInterface,MoConfig = {},{} local M = MoConfig
 
-require "scripts.dronescore"
+require "scripts.base"
 	
 remote.add_interface("MoCombat", ModInterface)
 
 function Intialize()
-	MoTimers.CreateTimer("ManageCombatDronePosts",60,0,false,ManageCombatDronePosts)
-	MoTimers.CreateTimer("ManageCombatDroneAi",60,0,false,ManageCombatDroneAi)
+	MoTimers.CreateTimer("ManagePokemonAI",				60,		0,	false,	false,	ManagePokemonAI)
+	MoTimers.CreateTimer("ManageCaptureAutomatic",		2 * 60,	0,	false,	false,	ManageCaptureAutomatic)
 end
 
 script.on_configuration_changed(Intialize)
@@ -26,20 +29,41 @@ script.on_init(Intialize)
 
 script.on_event(defines.events.on_player_created, function(event)
   local player = game.players[event.player_index]
-  --player.insert("pokeball-raikou")
-  --player.insert("pokeball-empty")
-  --player.insert("solid-fuel")
-  --player.insert("iron-ore")
   player.insert("raikou")
-  player.insert("raikou")
-  player.insert("raikou")
+  player.insert("iron-plate")
+  player.insert("iron-plate")
+  player.insert("iron-plate")
+  player.insert("iron-plate")
+  player.insert("copper-plate")
+  player.insert("copper-plate")
+  player.insert("copper-plate")
+  player.insert("copper-plate")
+  player.insert("copper-plate")
+  player.insert("basic-inserter")
+  player.insert("basic-inserter")
+  player.insert("basic-transport-belt")
+  player.insert("basic-transport-belt")
+  player.insert("long-handed-inserter")
+  player.insert("science-pack-1")
+  player.insert("lab")
+  
+  player.insert("assembling-machine-2")
+  player.insert("poke-chest")
+  player.insert("poke-capturator")
+  player.insert("pokeball-empty")
+  player.insert("poke-accumulator")
+  player.insert("solar-panel")
+  player.insert("small-electric-pole")
+  player.insert("dna-extractor-1")
+  player.insert("dna-electric")
+  
   --player.character_running_speed_modifier = 10
-  for i,c in pairs(game.item_prototypes) do
-	if (c.type == "capsule")
-	then player.print(""..c.name)
-	end
-  end
+---[[	
 	game.surfaces.nauvis.create_entity{	name = "raikou-wild-ko", 
 										position = game.surfaces.nauvis.find_non_colliding_position("raikou-wild-ko", player.position, 20, 5),
 										force = game.forces.neutral }
+	game.surfaces.nauvis.create_entity{	name = "charmander-wild-ko", 
+										position = game.surfaces.nauvis.find_non_colliding_position("charmander-wild-ko", player.position, 20, 5),
+										force = game.forces.neutral }
+--]]
 end)

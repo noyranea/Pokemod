@@ -20,6 +20,5 @@ data:extend(
   {
     type = "damage-type",
     name = "plant"
-  }  
-}
-)
+  }
+})

@@ -19,6 +19,9 @@ data.raw["map-settings"]["map-settings"].enemy_expansion.enabled = false;
 -- Remove enemy options from map generator dialog
 data.raw["autoplace-control"]["enemy-base"] = null
 
+local spawn_cd_max = 15
+local spawn_cd_min = 10
+
 -- Add pokemons !
 data:extend(
 {
@@ -37,9 +40,9 @@ data:extend(
 				},
     -- working_sound
     -- dying_sound
-    healing_per_tick = 0.02,
-    collision_box = {{-3.2, -2.2}, {2.2, 2.2}},
-    selection_box = {{-3.5, -2.5}, {2.5, 2.5}},
+    healing_per_tick = 5,
+   -- collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
+    selection_box = {{-1.3, -1.3}, {1.3, 1.3}},
     -- in ticks per 1 pu
     pollution_absorbtion_absolute = 20,
     pollution_absorbtion_proportional = 0.01,
@@ -62,11 +65,11 @@ data:extend(
     }},
     result_units = (function()
                     local res = {}
-                    res[1] = {"raikou-wild", {{0.0, 0.3}, {0.7, 0.0}}}
+                    res[1] = {"charmander-wild", {{0.0, 0.3}, {0.7, 0.0}}}
                     return res
                    end)(),
     -- With zero evolution the spawn rate is 6 seconds, with max evolution it is 2.5 seconds
-    spawning_cooldown = {360, 150},
+    spawning_cooldown = {spawn_cd_max, spawn_cd_min},
     spawning_radius = 10,
     spawning_spacing = 3,
     max_spawn_shift = 0,
@@ -149,9 +152,9 @@ data:extend(
 				},
     -- working_sound
     -- dying_sound
-    healing_per_tick = 0.02,
-    collision_box = {{-3.2, -2.2}, {2.2, 2.2}},
-    selection_box = {{-3.5, -2.5}, {2.5, 2.5}},
+    healing_per_tick = 5,
+    collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
+    selection_box = {{-1.3, -1.3}, {1.3, 1.3}},
     -- in ticks per 1 pu
     pollution_absorbtion_absolute = 20,
     pollution_absorbtion_proportional = 0.01,
@@ -178,7 +181,7 @@ data:extend(
                     return res
                    end)(),
     -- With zero evolution the spawn rate is 6 seconds, with max evolution it is 2.5 seconds
-    spawning_cooldown = {360, 150},
+    spawning_cooldown = {spawn_cd_max, spawn_cd_min},
     spawning_radius = 10,
     spawning_spacing = 3,
     max_spawn_shift = 0,
@@ -261,9 +264,9 @@ data:extend(
 				},
     -- working_sound
     -- dying_sound
-    healing_per_tick = 0.02,
-    collision_box = {{-3.2, -2.2}, {2.2, 2.2}},
-    selection_box = {{-3.5, -2.5}, {2.5, 2.5}},
+    healing_per_tick = 5,
+    collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
+    selection_box = {{-1.3, -1.3}, {1.3, 1.3}},
     -- in ticks per 1 pu
     pollution_absorbtion_absolute = 20,
     pollution_absorbtion_proportional = 0.01,
@@ -290,7 +293,7 @@ data:extend(
                     return res
                    end)(),
     -- With zero evolution the spawn rate is 6 seconds, with max evolution it is 2.5 seconds
-    spawning_cooldown = {360, 150},
+    spawning_cooldown = {spawn_cd_max, spawn_cd_min},
     spawning_radius = 10,
     spawning_spacing = 3,
     max_spawn_shift = 0,
@@ -373,9 +376,9 @@ data:extend(
 				},
     -- working_sound
     -- dying_sound
-    healing_per_tick = 0.02,
-    collision_box = {{-3.2, -2.2}, {2.2, 2.2}},
-    selection_box = {{-3.5, -2.5}, {2.5, 2.5}},
+    healing_per_tick = 5,
+    collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
+    selection_box = {{-1.3, -1.3}, {1.3, 1.3}},
     -- in ticks per 1 pu
     pollution_absorbtion_absolute = 20,
     pollution_absorbtion_proportional = 0.01,
@@ -402,7 +405,7 @@ data:extend(
                     return res
                    end)(),
     -- With zero evolution the spawn rate is 6 seconds, with max evolution it is 2.5 seconds
-    spawning_cooldown = {360, 150},
+    spawning_cooldown = {spawn_cd_max, spawn_cd_min},	
     spawning_radius = 10,
     spawning_spacing = 3,
     max_spawn_shift = 0,
