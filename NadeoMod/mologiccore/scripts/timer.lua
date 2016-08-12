@@ -40,10 +40,10 @@ FuncRegister("CreateTimer",function(Name,Length,Repeat,DontOverride,AutoIncremen
 				return
 			elseif (AutoIncrementName) then
 				local i = 0
-				while Timers[Name.."i"] ~= nil do
+				while Timers[Name..i] ~= nil do
 					i = i + 1
 				end
-				Name = Name.."i"
+				Name = Name..i
 			end
 		end
 				
